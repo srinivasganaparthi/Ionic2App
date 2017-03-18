@@ -7,6 +7,7 @@ import { ProductPage } from '../pages/products/products';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { ProductService } from '../services/product.service';
+import {myCartPage} from '../pages/products/myCart';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ProductService } from '../services/product.service';
     ContactPage,
     HomePage,
     ProductPage,
-    TabsPage
+    TabsPage,
+    myCartPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -27,7 +29,8 @@ import { ProductService } from '../services/product.service';
     ContactPage,
     ProductPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    myCartPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},ProductService]
 })

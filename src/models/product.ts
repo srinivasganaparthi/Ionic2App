@@ -9,6 +9,11 @@ export interface Product {
 	imageUrl : string;
 }
 
+export interface SelectedProduct {
+	product: Product;
+	qty : number;	 
+}
+
 
 /*
 Copyright 2016 Google Inc. All Rights Reserved.

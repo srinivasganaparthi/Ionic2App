@@ -1,23 +1,28 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>List of Products</ion-title>
+    <ion-title>List of Products
+      <div style="float: right">
+        <a [navPush]="myCartPage">
+          <ion-icon name="cart"></ion-icon>
+        </a>
+      </div>
+    </ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content padding>
   <ion-list>
     <ion-item *ngFor="let product of products" text-wrap>
-      <table>
-        <tr>
-          <td>
+       <div class="row">
+          <div class="col">
             <img src="{{product.imageUrl}}" alt="Product" />
-          </td>
-          <td style="padding: 10px;">
+          </div>
+          <div class="col">
             <h3>{{product.name}}</h3>
             <p>{{product.price | currency:'INR':true:'1.2-2'}}</p>
             <p><strong>Category: </strong>{{product.category}}</p>
-          </td>
-        </tr>
-      </table>
+            <button ion-button (click)="AddProductToCart(product);">Add to Cart</button>
+          </div>
+       </div>
     </ion-item>
   </ion-list>
 </ion-content>
