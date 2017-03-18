@@ -4,12 +4,20 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding>
-   <ion-list>
-    <ion-item *ngFor="let product of products">
-     <h3><strong>Name : </strong>{{product.name}}</h3>
-     <p><strong>Description: </strong>{{product.description}}</p>
-     <p><strong>Price: </strong>{{product.price}}</p>
-     <p><strong>Category: </strong>{{product.category}}</p>
+  <ion-list>
+    <ion-item *ngFor="let product of products" text-wrap>
+      <table>
+        <tr>
+          <td>
+            <img src="{{product.imageUrl}}" alt="Product" />
+          </td>
+          <td style="padding: 10px;">
+            <h3>{{product.name}}</h3>
+            <p>{{product.price | currency:'INR':true:'1.2-2'}}</p>
+            <p><strong>Category: </strong>{{product.category}}</p>
+          </td>
+        </tr>
+      </table>
     </ion-item>
   </ion-list>
 </ion-content>
