@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import {PRODUCTS}     from '../data/mock-products';
-import {Product} from '../models/product'
 import {SelectedProduct} from '../models/product'
 import 'rxjs/Rx';
 
