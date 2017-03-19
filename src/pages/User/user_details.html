@@ -1,0 +1,34 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Customer Details</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+    <div *ngIf="isSubmitted">
+        <button ion-button full>Your order has been placed successfully</button>
+    </div>
+    <div *ngIf="!isSubmitted">
+        <ion-list>
+            <ion-item>
+                <ion-label style="font-size: 2rem;" color="primary" stacked>Please enter Details</ion-label>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary" stacked>Name</ion-label>
+                <ion-input type="text" placeholder="please enter name"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary" stacked>Email</ion-label>
+                <ion-input type="email" placeholder="please enter email"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary" stacked>Phone</ion-label>
+                <ion-input type="text" placeholder="please enter phone"></ion-input>
+            </ion-item>
+            <ion-item>
+                <button ion-button style="float: right" (click)="isSubmitted = !isSubmitted">
+                Submit
+            </button>
+            </ion-item>
+        </ion-list>
+    </div>
+</ion-content>

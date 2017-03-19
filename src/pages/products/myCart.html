@@ -4,7 +4,7 @@
     </ion-navbar>
 </ion-header>
 <ion-content padding>
-    <div *ngIf="!purchageForm">
+    <div>
         <ion-list>
             <ion-item *ngFor="let selproduct of selProducts" text-wrap>
                 <div class="row">
@@ -12,11 +12,16 @@
                         <img src="{{selproduct.product.imageUrl}}" alt="Product" />
                         <h3>{{selproduct.product.name}}</h3>
                     </div>
-                    <div class="col" style="align-items: center">
+                    <div class="col">
                         <input style="width: 30px" type="text" [(ngModel)]="selproduct.qty" (ngModelChange)="updateTotalPrice()" />
                     </div>
-                    <div class="col" style="align-content: center">
+                    <div class="col">
                         {{selproduct.qty * selproduct.product.price}}
+                    </div>
+                    <div class="col">
+                        <a (click)="removeProductFromCart(selproduct);">
+                            <ion-icon name="trash"></ion-icon>
+                        </a>
                     </div>
                 </div>
             </ion-item>
@@ -33,13 +38,13 @@
                 </div>
             </ion-item>
             <ion-item text-wrap>
-                <button ion-button style="float: right" (click)="purchageForm=!purchageForm">
+                <button ion-button style="float: right" [navPush]="userDetailsPage">
                 Purchase
             </button>
             </ion-item>
         </ion-list>
     </div>
-    <div *ngIf="purchageForm">
+    <!--<div *ngIf="purchageForm">
         <ion-list>
             <ion-item>
                 <ion-label style="font-size: 2rem;" color="primary" stacked>Please enter Details</ion-label>
@@ -62,5 +67,5 @@
             </button>
             </ion-item>
         </ion-list>
-    </div>
+    </div>-->
 </ion-content>

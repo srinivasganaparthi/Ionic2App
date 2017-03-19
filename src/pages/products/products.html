@@ -2,14 +2,16 @@
   <ion-navbar>
     <ion-title>List of Products
       <div style="float: right">
-        <a [navPush]="myCartPage">
-          <ion-icon name="cart"></ion-icon>
+        <a style="text-decoration: none" [navPush]="myCartPage">
+         <ion-icon name="cart"></ion-icon>
+          <ion-icon>{{selectedProductCount}}</ion-icon>
         </a>
       </div>
     </ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content padding>
+  <!--<ion-spinner name="bubbles" *ngIf="page_loder" ></ion-spinner>-->
   <ion-list>
     <ion-item *ngFor="let product of products" text-wrap>
        <div class="row">

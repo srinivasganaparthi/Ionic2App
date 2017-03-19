@@ -10,16 +10,19 @@ import { myCartPage } from './myCart';
 })
 export class ProductPage {
   myCartPage = myCartPage;
-
+  //page_loder : boolean;
+  selectedProductCount : number
   products: Product[];
   constructor(public navCtrl: NavController, private _productService: ProductService) {
-
+      //this.page_loder = false;
+      this.selectedProductCount = 0;
   }
   getProducts() {
     this._productService.getProducts().then(products => this.products = products);
   }
 
   AddProductToCart(selProduct: Product) {
+   // this.page_loder = true;
     if (this._productService.selectedProducts == undefined) {
       this._productService.selectedProducts = [];
     }
@@ -33,6 +36,8 @@ export class ProductPage {
     }
     if (!isExists)
       this._productService.selectedProducts.push({ product: selProduct, qty: 1 });
+
+      this.selectedProductCount  = this._productService.selectedProducts.length;
   }
 
   getItems(ev: any) {
