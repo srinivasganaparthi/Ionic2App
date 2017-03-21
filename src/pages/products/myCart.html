@@ -4,7 +4,12 @@
     </ion-navbar>
 </ion-header>
 <ion-content padding>
-    <div>
+    <div *ngIf="selectedItemsCount == 0">
+        <ion-label color="primary">No items found in your cart</ion-label>
+        <br/>
+         <button ion-button (click)="navigateToProducts()">Continue Shopping</button>
+    </div>
+    <div *ngIf="selectedItemsCount > 0">
         <ion-list>
             <ion-item *ngFor="let selproduct of selProducts" text-wrap>
                 <div class="row">
@@ -38,7 +43,8 @@
                 </div>
             </ion-item>
             <ion-item text-wrap>
-                <button ion-button style="float: right" [navPush]="userDetailsPage">
+                <!--<button ion-button style="float: right" [navPush]="userDetailsPage">-->
+                <button ion-button style="float: right" (click)="navigateToUserDetails()">
                 Purchase
             </button>
             </ion-item>

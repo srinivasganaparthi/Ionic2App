@@ -10,19 +10,32 @@ import { myCartPage } from './myCart';
 })
 export class ProductPage {
   myCartPage = myCartPage;
-  //page_loder : boolean;
-  selectedProductCount : number
+  page_loder: boolean;
+  productSearch: string;
+  selectedProductCount: number
   products: Product[];
   constructor(public navCtrl: NavController, private _productService: ProductService) {
-      //this.page_loder = false;
-      this.selectedProductCount = 0;
+    this.page_loder = false;
+    this.selectedProductCount = 0;
+    this.productSearch = "";
   }
   getProducts() {
-    this._productService.getProducts().then(products => this.products = products);
+    this.page_loder = true;
+    this._productService.getProducts(this.productSearch).then(
+      products => { this.products = products; this.page_loder = false; }
+    );
+    if (this._productService.selectedProducts != undefined) {
+      this.selectedProductCount = this._productService.selectedProducts.length;
+    }
+
+  }
+
+  searchProducts($event) {
+    this.getProducts();
   }
 
   AddProductToCart(selProduct: Product) {
-   // this.page_loder = true;
+    // this.page_loder = true;
     if (this._productService.selectedProducts == undefined) {
       this._productService.selectedProducts = [];
     }
@@ -37,7 +50,7 @@ export class ProductPage {
     if (!isExists)
       this._productService.selectedProducts.push({ product: selProduct, qty: 1 });
 
-      this.selectedProductCount  = this._productService.selectedProducts.length;
+    this.selectedProductCount = this._productService.selectedProducts.length;
   }
 
   getItems(ev: any) {
