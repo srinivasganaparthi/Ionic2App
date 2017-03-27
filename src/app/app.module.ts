@@ -9,6 +9,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { ProductService } from '../services/product.service';
 import {myCartPage} from '../pages/products/myCart';
 import {userDetailsPage} from '../pages/User/user_details';
+import { Toast } from '@ionic-native/toast';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,6 @@ import {userDetailsPage} from '../pages/User/user_details';
     myCartPage,
     userDetailsPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},ProductService]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},ProductService,Toast]
 })
 export class AppModule {}

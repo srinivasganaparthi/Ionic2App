@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { PRODUCTS } from '../data/mock-products';
 import { SelectedProduct } from '../models/product'
 import 'rxjs/Rx';
+import { Toast } from '@ionic-native/toast';
 
 @Injectable()
 export class ProductService {
   selectedProducts: SelectedProduct[]
 
-  constructor() {
+  constructor( private toast: Toast) {
 
   }
 
@@ -19,6 +20,15 @@ export class ProductService {
         products => products.filter(product => product.name.toLowerCase().indexOf(searchName.toLowerCase()) > -1)
       );
     }
+  }
+
+ 
+  showToast(message) {
+    this.toast.show(message, 'short', 'center').subscribe(
+      toast => {
+        console.log(toast);
+      }
+    );
   }
 
   getProduct(id: number) {

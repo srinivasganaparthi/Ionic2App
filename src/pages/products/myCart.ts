@@ -3,7 +3,7 @@ import { NavController, Platform } from 'ionic-angular';
 import { ProductService } from '../../services/product.service';
 import { SelectedProduct } from '../../models/product'
 import { userDetailsPage } from '../User/user_details';
-import  {ProductPage}  from '../products/products';
+import { ProductPage } from '../products/products';
 
 @Component({
     selector: 'page-myCart',
@@ -45,6 +45,7 @@ export class myCartPage {
         if (index > -1) {
             this._productService.selectedProducts.splice(index, 1);
             this.updateTotalPrice();
+            this._productService.showToast("selected product removed from cart");
         }
     }
     navigateToUserDetails() {
@@ -52,7 +53,7 @@ export class myCartPage {
         );
     }
 
-  navigateToProducts() {
+    navigateToProducts() {
         this.nav.push(this.productPage, {});
     }
 

@@ -104,9 +104,9 @@ export var PRODUCTS: Product[] = [
   {
     "category": "Electronics (Accessories)",
     "categoryId": 8,
-    "description": " HP 15-BE002TU 15.6-inch Laptop (Pentium N3710/4GB/1TB/FreeDOS/Integrated Graphics), Jack Black ",
+    "description": " HP 15- BE002TU 15.6-inch Laptop (Pentium N3710/ 4GB/1TB / FreeDOS/ Integrated Graphics), Jack Black ",
     "id": 11,
-    "name": " HP 15-BE002TU 15.6-inch Laptop (Pentium N3710/4GB/1TB/FreeDOS/Integrated Graphics), Jack Black ",
+    "name": " HP 15- BE002TU 15.6- inch Laptop (Pentium N3710/4GB/1TB/ FreeDOS/ Integrated Graphics), Jack Black ",
     "price": 21999.00,
     "quantity": 2,
     imageUrl: "assets/products/hp.png"
